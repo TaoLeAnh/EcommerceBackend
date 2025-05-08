@@ -12,7 +12,7 @@ namespace Models
 
         [Required]
         [StringLength(100)]
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string FullName { get; set; }
 
         [Required]
@@ -22,17 +22,17 @@ namespace Models
         
         [Required]
         [StringLength(255)]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         public string Address { get; set; }
 
         [Required]
         [StringLength(100)]
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string City { get; set; }
 
         [Required]
         [StringLength(100)]
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string Country { get; set; }
 
         [Required]

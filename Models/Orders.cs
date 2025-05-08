@@ -21,6 +21,8 @@ namespace Models
         [Column(TypeName = "nvarchar(50)")]
         public string? Status { get; set; } = "Pending";
 
+        public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
         [Required]
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }

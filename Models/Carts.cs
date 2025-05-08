@@ -13,6 +13,8 @@ namespace Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt {get; set; } = DateTime.UtcNow;
 
+        public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
+
         [Required]
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }

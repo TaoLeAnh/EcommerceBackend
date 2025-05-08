@@ -170,3 +170,4 @@ E:\Ecommerce\EcommerceBackend\obj\Debug\net8.0\ref\EcommerceBackend.dll
 E:\Ecommerce\EcommerceBackend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 E:\Ecommerce\EcommerceBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Ecommerce\EcommerceBackend\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+E:\Ecommerce\EcommerceBackend\obj\Debug\net8.0\EcommerceBackend.sourcelink.json

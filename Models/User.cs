@@ -12,23 +12,23 @@ namespace Models
 
         [Required]
         [StringLength(50)]
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "nvarchar(50)")]
         public string Username { get; set; }
 
         [Required]
         [StringLength(255)]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         public string Password { get; set; }
 
         [Required]
         public string FullName { get; set; }
     
         [Required]
-        [Column(TypeName = "varchar(20)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Role { get; set; }
 
         [StringLength(20)]
-        [Column(TypeName = "varchar(20)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Phone { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

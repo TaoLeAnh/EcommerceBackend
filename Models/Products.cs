@@ -12,11 +12,11 @@ namespace Models
 
         [Required]
         [StringLength(100)]
-        [Column(TypeName = "varchar(100)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
 
         [StringLength(255)]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         public string Description { get; set; }
 
         [Required]
@@ -28,7 +28,7 @@ namespace Models
         public int Stock { get; set; }
 
         [StringLength(255)]
-        [Column(TypeName = "varchar(255)")]
+        [Column(TypeName = "nvarchar(255)")]
         public string ImageUrl { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

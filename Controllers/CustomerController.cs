@@ -21,16 +21,17 @@ namespace Controllers
         if (await _context.Customers.AnyAsync(c => c.FullName == request.FullName))
             return BadRequest("Customer đã tồn tại");
         
-        var Customer = new Customer{
+        var customer = new Customer{
             FullName = request.FullName,
             Phone = request.Phone,
             Address = request.Address,
             City = request.City,
-            Country = request.Country
+            Country = request.Country,
+            UserId = request.UserId
         };
-        _context.Customers.Add(Customer);
+        _context.Customers.Add(customer);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetCustomer), new {id = Customer.Id}, Customer);
+        return CreatedAtAction(nameof(GetCustomer), new {id = customer.Id}, customer);
     }
 
     [HttpGet("{id}")]
@@ -39,7 +40,34 @@ namespace Controllers
         var customer = await _context.Customers.FindAsync(id);
         if(customer == null)
             return NotFound();
-        return customer;
+        return Ok(customer);
+    }
+    [HttpPut]
+    [Route("{id}")]
+    public async Task<ActionResult<Customer>> UpdateCustomer([FromRoute] int id, [FromBody] UpdateCustomerRequest request)
+    {
+        var customer = await _context.Customers.FirstOrDefaultAsync(u => u.Id == id);
+        if(customer == null)
+            return NotFound();
+        customer.FullName = request.FullName;
+        customer.Phone = request.Phone;
+        customer.Address = request.Address;
+        customer.City = request.City;
+        customer.Country = request.Country;
+
+        await _context.SaveChangesAsync();
+        return Ok(customer);
+    }
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<ActionResult<Customer>> DeleteCustomer([FromRoute] int id)
+    {
+        var customer = await _context.Customers.FirstOrDefaultAsync(u => u.Id == id);
+        if(customer == null)
+            return NotFound();
+        _context.Customers.Remove(customer);
+        await _context.SaveChangesAsync();
+        return NoContent();
     }
    } 
    public class CreateCustomerRequest
@@ -49,5 +77,16 @@ namespace Controllers
         public string Address { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public int UserId { get; set; }
+    }
+
+    public class UpdateCustomerRequest
+    {    
+        public string FullName { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public int UserId { get; set; }
     }
 }
